@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>J.Shivani_22bce3055</title>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>  
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+    body {
+      background-color: rgb(145, 197, 235);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh; 
+    }
+  
+    .form {
+      background-color: white;
+      height: 500px;
+      width: 500px;
+      padding-top: 5px;
+      padding-right: 40px;
+      padding-bottom: 40px;
+      padding-left: 10px;
+      border: 2px solid rgb(18, 17, 17);
+      border-radius: 4px;
+      border-color: yellow;
+      text-align: center;
+    }
+  
+    h1 {
+      color: rgb(145, 197, 235);
+      font-family: 'Times New Roman';
+      font-size: 300%;
+      text-align: center;
+    }
+  
+  
+    p {
+      color: red;
+      font-family: 'Times New Roman';
+      font-size: 80%;
+      text-align: center;
+    }
+  
+    label {
+      margin: 5px;
+    }
+  
+    input,textarea {
+      width: 60%;
+      padding: 10px;
+      margin: 5px 0 15px;
+      display: inline-block;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      text-align: center;
+    }
+
+    button{
+        background-color: rgb(145, 197, 235);
+        border: none;
+        color: white;
+        padding: 15px 100px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 5px 2px;
+        border-radius: 50px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body onload="capt()">
+<div class="form">
+    <h1><b>LOGIN</b></h1>
+    <form onload="capt()" onreset="capt()">
+        <label for="user">Username:</label><br>
+        <input type="text" id="user" required><br>
+    
+        <label for="pass">Password:</label><br>
+        <input type="password" id="pass" required><br>    
+       
+        <label for="cap">Captcha:</label><br>
+        <input type="text" readonly id="cap1" required><br>
+        <input type="text" id="cap" required><br>
+        <p id="demo1"></p>
+        <button type="button" onclick="valid()">login</button>
+    </form>
+    <script>
+        function capt() {
+            var st = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U',
+                'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
+                't', 'u', 'v', 'w', 'x', 'y', 'z', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0'
+            ];
+            var a = st[Math.floor(Math.random() * 61)];
+            var b = st[Math.floor(Math.random() * 61)];
+            var c = st[Math.floor(Math.random() * 61)];
+            var d = st[Math.floor(Math.random() * 61)];
+            var e = st[Math.floor(Math.random() * 61)];
+            var f = st[Math.floor(Math.random() * 61)];
+            var final = a + b + c + d + e + f;
+            document.getElementById("cap1").value = final;
+        }
+    
+        function valid() {
+            var c1 = document.getElementById("cap1").value;
+            var c2 = document.getElementById("cap").value;
+            if (c1 == c2) {
+                alert("Login successful");
+                return true;
+            } else {
+                document.getElementById("demo1").innerHTML = "Invalid captcha";
+                return false;
+            }
+        }
+        window.onload = function() {
+            capt();
+        };
+    </script>
+   
+</div>
+</body>
+</html>
